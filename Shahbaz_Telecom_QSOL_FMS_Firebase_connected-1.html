@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHAHBAZ TELECOM | Q_SOL FMS</title>
+<style>
+:root{--navy:#06275d;--blue:#1265e8;--light:#f3f6fc;--ink:#122044;--muted:#65738e;--line:#e0e7f3}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--ink)}
+.top{height:auto;min-height:94px;background:linear-gradient(110deg,#041d4a,#0756bf);color:white;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;gap:18px}
+.brand{font-weight:800;font-size:22px;letter-spacing:.5px}.brand small{display:block;font-weight:400;font-size:12px;color:#dbe8ff;margin-top:5px}
+.topright{font-size:13px;color:#e4edff}
+.layout{display:flex;min-height:calc(100vh - 94px)}aside{width:230px;background:#06275d;color:#fff;padding:16px 10px;flex-shrink:0}
+.nav{display:flex;align-items:center;gap:12px;padding:12px 14px;margin:4px 0;border-radius:9px;color:#dce8ff;cursor:pointer;font-size:14px}
+.nav:hover,.nav.active{background:#1265e8;color:#fff}.nav .ico{width:22px;text-align:center;font-size:17px}
+main{flex:1;min-width:0;padding:22px}.welcome{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+h1{font-size:24px;margin:0 0 5px}.sub{color:var(--muted);font-size:14px}.portal{background:#082b68;color:#fff;border-radius:12px;padding:15px 20px;font-weight:700;min-width:230px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.metric{padding:19px;border-radius:12px;color:white;min-height:112px;box-shadow:0 5px 15px #102d5a12}.metric span{display:block;font-size:14px}.metric strong{display:block;font-size:23px;margin-top:10px}.m1{background:linear-gradient(130deg,#087bff,#1260db)}.m2{background:linear-gradient(130deg,#00b979,#008e58)}.m3{background:linear-gradient(130deg,#9234ec,#5d20cb)}.m4{background:linear-gradient(130deg,#ffa500,#df7900)}
+.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}.panel h2{font-size:17px;margin:0 0 15px}.cols{display:grid;grid-template-columns:1.35fr 1fr;gap:16px}.quick{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.quick button{border:0;border-radius:9px;padding:14px;background:#eaf1ff;color:#0754c7;font-weight:700;cursor:pointer}.quick button:hover{background:#dbe8ff}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:11px 8px;border-bottom:1px solid #edf1f7}th{color:#5e6c86;background:#f8faff}td:last-child,th:last-child{text-align:right}
+.page-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.btn{border:0;border-radius:8px;background:var(--blue);color:white;padding:10px 14px;font-weight:700;cursor:pointer}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}label{font-size:13px;color:#52617d;display:block}input,select,textarea{width:100%;padding:11px;border:1px solid #d8e1ef;border-radius:8px;margin-top:6px;font:inherit;background:white}form .full{grid-column:1/-1}
+.notice{background:#fff7df;border:1px solid #f2df9f;color:#755a00;padding:12px;border-radius:9px;font-size:13px;margin-bottom:16px}
+footer{padding:14px 22px;background:#06275d;color:#dbe8ff;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.login-screen{position:fixed;inset:0;z-index:1000;background:linear-gradient(135deg,#041d4a,#1265e8);display:flex;align-items:center;justify-content:center;padding:18px}
+.login-card{width:min(420px,100%);background:white;border-radius:18px;padding:28px;box-shadow:0 18px 55px #00143c55}
+.login-card h2{margin:0 0 8px;color:#082b68}.login-card p{color:#65738e;font-size:14px;margin:0 0 20px}
+.login-card label{margin:12px 0}.login-card .btn{width:100%;margin-top:10px}
+.login-hint{background:#f3f6fc;border-radius:8px;padding:10px;font-size:12px;color:#52617d;margin-top:14px;line-height:1.6}
+.login-error{color:#b42318;font-size:13px;min-height:18px;margin-top:8px}
+@media(max-width:900px){.layout{display:block}aside{width:100%;display:flex;overflow-x:auto;padding:8px}.nav{white-space:nowrap;margin:0 3px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.cols{grid-template-columns:1fr}main{padding:14px}}
+@media(max-width:500px){.cards{grid-template-columns:1fr 1fr}.metric{padding:14px}.metric strong{font-size:18px}form{grid-template-columns:1fr}.top{padding:14px}.brand{font-size:18px}h1{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="login-screen" id="loginScreen">
+  <section class="login-card">
+    <div style="font-size:28px;margin-bottom:12px">📡</div>
+    <h2>SHAHBAZ TELECOM</h2>
+    <p>Q_SOL FMS · Please sign in to continue</p>
+    <form id="loginForm" style="display:block">
+      <label>User ID<input id="loginUser" autocomplete="username" required placeholder="Enter user ID"></label>
+      <label>Password<input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Enter password"></label>
+      <button class="btn" type="submit">Login</button>
+      <div class="login-error" id="loginError"></div>
+    </form>
+    <div class="login-hint"><b>Temporary demo login</b><br>User ID: <code>kabeer</code><br>Password: <code>Kabeer@123</code><br>This is only a demo login. Firebase Authentication will be set up in a later step.</div>
+  </section>
+</div>
+<header class="top">
+  <div class="brand">📡 SHAHBAZ TELECOM <small>Q_SOL FMS · Franchise Management System</small></div>
+  <div class="topright">🟢 Online &nbsp; | &nbsp; Kabeer Ali Abbasi</div>
+</header>
+<div class="layout">
+<aside id="sidebar">
+  <div class="nav active" data-page="Dashboard"><span class="ico">⌂</span>Dashboard</div>
+  <div class="nav" data-page="Stock Receiving"><span class="ico">📦</span>Stock Receiving</div>
+  <div class="nav" data-page="Stock Issuance"><span class="ico">⇄</span>Stock Issuance</div>
+  <div class="nav" data-page="Sales"><span class="ico">🛒</span>Sales</div>
+  <div class="nav" data-page="Purchase"><span class="ico">🧾</span>Purchase</div>
+  <div class="nav" data-page="Retailers"><span class="ico">👥</span>Retailer Management</div>
+  <div class="nav" data-page="Recovery"><span class="ico">💵</span>Recovery</div>
+  <div class="nav" data-page="Expenses"><span class="ico">💳</span>Expenses</div>
+  <div class="nav" data-page="Staff"><span class="ico">🧑‍💼</span>Staff Management</div>
+  <div class="nav" data-page="Reports"><span class="ico">📊</span>Reports</div>
+  <div class="nav" data-page="Settings"><span class="ico">⚙</span>Settings</div>
+</aside>
+<main id="main"></main>
+</div>
+<footer><span>© 2026 Shahbaz Telecom · Q_SOL FMS</span><span>Firebase integration will be enabled in the next setup step</span></footer>
+<script>
+const pages=["Dashboard","Stock Receiving","Stock Issuance","Sales","Purchase","Retailers","Recovery","Expenses","Staff","Reports","Settings"];
+const main=document.getElementById("main");
+function dashboard(){return `
+<div class="welcome"><div><h1>👋 Welcome back, Kabeer Ali Abbasi!</h1><div class="sub">Here is your franchise business overview.</div></div><div class="portal">🏪 Shahbaz Telecom<br><small>Q_SOL FMS Web Portal</small></div></div>
+<div class="cards">
+<div class="metric m1"><span>Today's Sales</span><strong>Rs. 48,750</strong></div>
+<div class="metric m2"><span>Today's Purchase</span><strong>Rs. 35,000</strong></div>
+<div class="metric m3"><span>Total Stock</span><strong>12,580 Items</strong></div>
+<div class="metric m4"><span>Cash Balance</span><strong>Rs. 127,500</strong></div>
+</div>
+<div class="cols">
+<section class="panel"><h2>📈 Sales Overview</h2><div style="height:180px;display:flex;align-items:end;gap:12px;padding:10px 6px;border-bottom:1px solid #dce5f3">
+${[35,58,48,76,61,83,96].map((h,i)=>`<div style="flex:1;height:${h}%;background:linear-gradient(#2b86ff,#0c5bd7);border-radius:6px 6px 0 0;min-width:8px" title="Sample sales"></div>`).join("")}</div><div class="sub" style="display:flex;justify-content:space-between;margin-top:10px"><span>Week start</span><span>Current week (sample)</span></div></section>
+<section class="panel"><h2>⚡ Quick Actions</h2><div class="quick"><button onclick="openPage('Sales')">＋ New Sale</button><button onclick="openPage('Purchase')">＋ New Purchase</button><button onclick="openPage('Retailers')">＋ Add Retailer</button><button onclick="openPage('Stock Issuance')">⇄ Stock Transfer</button><button onclick="openPage('Reports')">▥ View Reports</button><button onclick="openPage('Settings')">⚙ Setup</button></div></section>
+</div>
+<section class="panel"><h2>🕘 Recent Activities</h2><table><thead><tr><th>Activity</th><th>Reference</th><th>Amount</th></tr></thead><tbody><tr><td>Sale invoice</td><td>Sample #S-001</td><td>Rs. 12,500</td></tr><tr><td>Stock received</td><td>Sample #R-001</td><td>Rs. 75,000</td></tr><tr><td>Retailer payment</td><td>Sample recovery</td><td>Rs. 10,000</td></tr></tbody></table><p class="sub">Dashboard values are sample placeholders until Firebase and your actual records are connected.</p></section>`}
+function formFor(page){let fields={ "Stock Receiving":["Supplier","Product / Item","Quantity","Unit Cost","Reference / Invoice"],"Stock Issuance":["Retailer / Staff","Product / Item","Quantity","Issue Date","Remarks"],"Sales":["Retailer (optional)","Product / Item","Quantity","Sale Price","Payment Type"],"Purchase":["Supplier","Product / Item","Quantity","Purchase Price","Invoice Number"],"Retailers":["Retailer Name","Phone Number","Shop Address","Opening Balance","Status"],"Recovery":["Retailer","Amount Received","Payment Method","Receipt Number","Notes"],"Expenses":["Expense Category","Amount","Date","Paid To","Description"],"Staff":["Staff Name","Phone Number","Role","Commission %","Status"],"Reports":["Report Type","Start Date","End Date","Filter (optional)"],"Settings":["Franchise Name","Owner Name","Currency","Contact Number","Firebase Status"]};
+let fs=fields[page]||["Name","Description"];return `<div class="page-title"><div><h1>${page}</h1><div class="sub">Create and manage ${page.toLowerCase()} records.</div></div><button class="btn" onclick="openPage('Dashboard')">← Dashboard</button></div><div class="notice">This module UI is a starter template. Saving records and Firestore integration will be added step-by-step.</div><section class="panel"><form id="recordForm">${fs.map((f,i)=>`<label>${f}<input ${i===0?"required":""} placeholder="Enter ${f.toLowerCase()}"></label>`).join("")}<div class="full"><button class="btn" type="submit">Save (demo)</button></div></form><div id="msg" class="sub" style="margin-top:12px"></div></section>`}
+function openPage(page){document.querySelectorAll(".nav").forEach(n=>n.classList.toggle("active",n.dataset.page===page));main.innerHTML=page==="Dashboard"?dashboard():formFor(page);const form=document.getElementById("recordForm");if(form)form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const fields=[...form.querySelectorAll("label")].map(label=>({
+    field: label.childNodes[0].textContent.trim(),
+    value: label.querySelector("input,select,textarea")?.value?.trim() || ""
+  }));
+  const msg=document.getElementById("msg");
+  msg.textContent="Saving to Firebase...";
+  try {
+    if(!window.saveFmsRecord) throw new Error("Firebase is still starting. Please try again.");
+    await window.saveFmsRecord(page, fields);
+    msg.textContent="Saved successfully to Firebase Realtime Database.";
+    form.reset();
+  } catch(err) {
+    msg.textContent="Save failed: "+err.message;
+  }
+});}
+document.querySelectorAll(".nav").forEach(n=>n.addEventListener("click",()=>openPage(n.dataset.page)));
+document.getElementById("loginForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const user=document.getElementById("loginUser").value.trim();
+  const pass=document.getElementById("loginPassword").value;
+  if(user==="kabeer" && pass==="Kabeer@123"){
+    document.getElementById("loginScreen").style.display="none";
+    openPage("Dashboard");
+  }else{
+    document.getElementById("loginError").textContent="Incorrect User ID or Password. Please try again.";
+  }
+});
+openPage("Dashboard");
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+  import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD1OzXNz1au0WU93txD7uZ865_Bcl9vWMw",
+    authDomain: "shahbaz-telecom-fms.firebaseapp.com",
+    databaseURL: "https://shahbaz-telecom-fms-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "shahbaz-telecom-fms",
+    storageBucket: "shahbaz-telecom-fms.firebasestorage.app",
+    messagingSenderId: "238657665700",
+    appId: "1:238657665700:web:eea4c7192aeac7faecc431"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  window.saveFmsRecord = async (moduleName, fields) => {
+    const safeModule = moduleName.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+    const recordRef = push(ref(database, "fms/" + safeModule));
+    await set(recordRef, {
+      fields,
+      createdAt: new Date().toISOString(),
+      createdBy: "Kabeer Ali Abbasi"
+    });
+    return recordRef.key;
+  };
+</script>
+
+</body>
+</html>
